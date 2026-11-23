@@ -29,7 +29,7 @@ from nba_api.stats.static import teams
 OUTPUT_COLUMNS = [
     "SEASON_1", "SEASON_2", "TEAM_ID", "TEAM_NAME", "PLAYER_ID",
     "PLAYER_NAME", "POSITION_GROUP", "POSITION", "GAME_DATE", "GAME_ID",
-    "HOME_TEAM", "AWAY_TEAM", "EVENT_TYPE", "SHOT_MADE", "ACTION_TYPE",
+    "GAME_EVENT_ID", "HOME_TEAM", "AWAY_TEAM", "EVENT_TYPE", "SHOT_MADE", "ACTION_TYPE",
     "SHOT_TYPE", "BASIC_ZONE", "ZONE_NAME", "ZONE_ABB", "ZONE_RANGE",
     "LOC_X", "LOC_Y", "SHOT_DISTANCE", "QUARTER", "MINS_LEFT",
     "SECS_LEFT", "SEASON", "MADE", "SECONDS_LEFT_IN_PERIOD", "IS_THREE",
@@ -301,6 +301,7 @@ def prepare_season(
     output["POSITION"] = merged["POSITION"]
     output["GAME_DATE"] = date.dt.strftime("%m-%d-%Y")
     output["GAME_ID"] = merged["GAME_ID"]
+    output["GAME_EVENT_ID"] = merged["GAME_EVENT_ID"]
     output["HOME_TEAM"] = merged["HTM"]
     output["AWAY_TEAM"] = merged["VTM"]
     output["EVENT_TYPE"] = merged["EVENT_TYPE"]
